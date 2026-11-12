@@ -1,23 +1,18 @@
-import db from "./db.ts";
-import { clsShow } from "./models/clsShow.ts";
+import { ShowController } from "./controllers/showController.ts";
 
 console.log("Starting the Boris Theater Server...");
 
-// --- TEMPORARY TEST BLOCK ---
-console.log("Running Model Test...");
-const testShow = new clsShow(
-    "Hamlet - Opening Night",
-    "2026-11-20",
-    45.50,
-    120,
-);
-testShow.AddShow(); // This triggers the validation and the INSERT query
+Deno.serve({ port: 8000 }, async (req) => {
+    const url = new URL(req.url);
 
-const activeShows = clsShow.FindAllActive();
-console.log("Currently Active Shows in DB:", activeShows);
-// ----------------------------
+    // Route requests to Controller methods
+    if (url.pathname === "/" || url.pathname === "/browse") {
+        return await ShowController.getBrowsePage();
+    } else if (url.pathname === "/admin/add-show" && req.method === "GET") {
+        return await ShowController.getAddShowPage();
+    } else if (url.pathname === "/api/add-show" && req.method === "POST") {
+        return await ShowController.handleAddShow(req);
+    }
 
-// Start the local web server on port 8000
-Deno.serve({ port: 8000 }, (_req) => {
-    return new Response("Boris Theater System - MVC Engine is running!");
+    return new Response("404 - Page Not Found", { status: 404 });
 });

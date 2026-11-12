@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Boris Theater - Browse Shows</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f6f8;
+        }
+        h1 {
+            color: #1e293b;
+        }
+        .nav {
+            margin-bottom: 20px;
+        }
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0284c7;
+            font-weight: bold;
+        }
+        .show-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .price {
+            color: #16a34a;
+            font-weight: bold;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="nav">
+    <a href="/browse">Browse Shows</a> | 
+    <a href="/admin/add-show">Admin: Add Show</a>
+  </div>
+        <h1>Current Performances</h1>
+        <div id="shows-container">
+    <!-- Shows will be populated dynamically -->
+    {{ SHOW_CARDS }}
+  </div>
+    </body>
+</html>
