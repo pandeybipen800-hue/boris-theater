@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Boris Theater - Staff Login</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <div>
+                <a href="/">Main Menu</a>
+                <a href="/browse">Browse &amp; Search Shows</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Staff Login</h1>
+            <div class="form-card">
+      <!-- Displays inline error message if login credentials are wrong -->
+      {{ ERROR_MSG }}
+
+      <form action="/api/login" method="POST">
+        <label>Staff Username</label>
+        <input type="text" name="username" placeholder="Enter username">
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password">
+
+        <button type="submit" class="btn">Log In</button>
+      </form>
+
+      <p style="margin-top: 15px; font-size: 13px; color: #64748b;">
+        <strong>Demo Credentials:</strong> Username: <code>admin</code> | Password: <code>boris123</code>
+      </p>
+    </div>
+        </div>
+    </body>
+</html>

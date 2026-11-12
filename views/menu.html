@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Boris Theater - Main Menu</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <!-- Main navigation bar for the Presentation Layer -->
+        <div class="navbar">
+            <div>
+                <a href="/">Main Menu</a>
+                <a href="/browse">Browse &amp; Search Shows</a>
+                <a href="/admin/add-show">Add New Show</a>
+            </div>
+            <div>{{ AUTH_LINK }}</div>
+        </div>
+
+        <div class="container">
+            <h1>Boris Theater Management System</h1>
+            <p>Welcome to the Show Management module. Select an option below to navigate the system:</p>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <h3>Public Show Schedule</h3>
+                    <p>View all active performances, search by show title, and filter by ticket price.</p>
+                    <a href="/browse" class="btn">Open Show List</a>
+                </div>
+
+                <div class="menu-card">
+                    <h3>Staff Portal &amp; Login</h3>
+                    <p>Log in as a staff member to unlock adding, editing, and cancelling shows.</p>
+                    <a href="/login" class="btn">Staff Login</a>
+                </div>
+
+                <div class="menu-card">
+                    <h3>Add New Performance</h3>
+                    <p>Schedule a new theater show with full input validation (Staff login required).</p>
+                    <a href="/admin/add-show" class="btn">Add Show</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

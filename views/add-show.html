@@ -3,63 +3,41 @@
     <head>
         <meta charset="UTF-8">
         <title>Boris Theater - Add Show</title>
-        <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            background-color: #f4f6f8;
-        }
-        h1 {
-            color: #1e293b;
-        }
-        form {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 400px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            margin-top: 15px;
-            padding: 10px 15px;
-            background: #0284c7;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        </style>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <h1>Add New Show</h1>
-        <form action="/api/add-show" method="POST">
-            <label>Show Title</label>
-            <input type="text" name="title" required placeholder="e.g. Macbeth">
+        <div class="navbar">
+            <div>
+                <a href="/">Main Menu</a>
+                <a href="/browse">Browse &amp; Search Shows</a>
+                <a href="/admin/add-show">Add New Show</a>
+            </div>
+            <div><a href="/logout">Logout</a></div>
+        </div>
 
-            <label>Show Date</label>
-            <input type="date" name="date" required>
+        <div class="container">
+            <h1>Add New Show</h1>
+            <div class="form-card">
+      <!-- Validation errors from clsShow.Validate() appear right here -->
+      {{ ERROR_MSG }}
 
-            <label>Ticket Price ($)</label>
-            <input type="number" step="0.01" name="price" required
-                placeholder="45.00">
+      <form action="/api/add-show" method="POST">
+        <label>Show Title</label>
+        <input type="text" name="title" placeholder="e.g. Macbeth">
 
-            <label>Available Seats</label>
-            <input type="number" name="seats" required placeholder="100">
+        <label>Show Date</label>
+        <input type="date" name="date">
 
-            <button type="submit">Save Show</button>
-        </form>
-        <p><a href="/browse">Back to Browse Shows</a></p>
+        <label>Ticket Price ($)</label>
+        <input type="number" step="any" name="price" placeholder="45.00">
+
+        <label>Available Seats</label>
+        <input type="number" name="seats" placeholder="100">
+
+        <button type="submit" class="btn">Save Show</button>
+        <a href="/browse" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+        </div>
     </body>
 </html>

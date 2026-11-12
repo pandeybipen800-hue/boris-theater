@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Boris Theater - Edit Show</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="navbar">
+            <div>
+                <a href="/">Main Menu</a>
+                <a href="/browse">Browse &amp; Search Shows</a>
+                <a href="/admin/add-show">Add New Show</a>
+            </div>
+            <div><a href="/logout">Logout</a></div>
+        </div>
+
+        <div class="container">
+            <h1>Edit Show Details</h1>
+            <div class="form-card">
+      <!-- Validation errors appear here if invalid updates are submitted -->
+      {{ ERROR_MSG }}
+
+      <form action="/api/edit-show" method="POST">
+        <input type="hidden" name="id" value="{{ ID }}">
+
+        <label>Show Title</label>
+        <input type="text" name="title" value="{{ TITLE }}">
+
+        <label>Show Date</label>
+        <input type="date" name="date" value="{{ DATE }}">
+
+        <label>Ticket Price ($)</label>
+        <input type="number" step="any" name="price" value="{{ PRICE }}">
+
+        <label>Available Seats</label>
+        <input type="number" name="seats" value="{{ SEATS }}">
+
+        <button type="submit" class="btn">Update Show</button>
+        <a href="/browse" class="btn btn-secondary">Cancel</a>
+      </form>
+    </div>
+        </div>
+    </body>
+</html>
